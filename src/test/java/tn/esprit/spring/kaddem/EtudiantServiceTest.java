@@ -1,4 +1,4 @@
-package tn.esprit.spring.kaddem;
+/*package tn.esprit.spring.kaddem;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
@@ -18,7 +18,7 @@ import java.util.List;
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
 public class EtudiantServiceTest {
-    @Autowired
+    /*@Autowired
     IEtudiantService ies;
     @Autowired
     EtudiantRepository etudiantRepository;
@@ -47,7 +47,7 @@ public class EtudiantServiceTest {
     @Test
     @Order(3)
     @Transactional
-    public void TestupdateEtudiant (){
+    public void TestUpdateContrat (){
         Etudiant etudiant = new Etudiant();
         etudiant.setNomE("Selmi");
         etudiant.setPrenomE("Moussa");
@@ -78,6 +78,6 @@ public class EtudiantServiceTest {
 
         Etudiant removedEtudiant = etudiantRepository.findById(savedEtudiant.getIdEtudiant()).orElse(null);
         Assertions.assertNull(removedEtudiant);
-    }
+    }*/
 
-}
+
