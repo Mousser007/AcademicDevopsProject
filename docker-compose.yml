@@ -13,7 +13,7 @@ services:
     volumes:
       - db:/var/lib/mysql
   app:
-    container_name: kaddem\db
+    container_name: kaddemProject
     image: arfaouiiheb/backend  # Replace with the actual image and tag
     restart: on-failure
     environment:
