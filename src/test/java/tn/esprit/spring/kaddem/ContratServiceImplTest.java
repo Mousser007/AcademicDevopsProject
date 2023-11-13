@@ -1,8 +1,7 @@
 package tn.esprit.spring.kaddem;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -38,9 +37,10 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 @Slf4j
 @Transactional
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
  class ContratServiceImplTest {
 
-    @InjectMocks
+    /*@InjectMocks
     private ContratRestController contratRestController;
     @Mock
     private IContratService contratService;
@@ -49,9 +49,19 @@ import static org.mockito.Mockito.*;
     @MockBean
     private ContratRepository contratRepository;
     @Autowired
+    private ContratServiceImpl contratServiceImpl;*/
+
+    @InjectMocks
+    private ContratRestController contratRestController;
+
+    @InjectMocks
     private ContratServiceImpl contratServiceImpl;
+    @Mock
+    private ContratRepository contratRepository;
+
 
     @Test
+    @Order(1)
     void testRetrieveAllContrats() {
         ArrayList<Contrat> contratList = new ArrayList<>();
         when(contratRepository.findAll()).thenReturn(contratList);
@@ -61,6 +71,7 @@ import static org.mockito.Mockito.*;
         verify(contratRepository).findAll();
     }
        @Test
+       @Order(2)
         void testAddContrat() {
             Contrat contrat = new Contrat();
             contrat.setIdContrat(1);
@@ -85,6 +96,7 @@ import static org.mockito.Mockito.*;
         }
 
     @Test
+    @Order(3)
      void testRetrieveContrat() {
         Contrat contrat = new Contrat();
         Mockito.when(contratRepository.findById(Mockito.any())).thenReturn(Optional.of(contrat));
@@ -93,6 +105,7 @@ import static org.mockito.Mockito.*;
     }
 
     @Test
+    @Order(4)
      void TestUpdateContrat() {
         Contrat contrat = new Contrat();
         contrat.setIdContrat(1);
@@ -126,6 +139,7 @@ import static org.mockito.Mockito.*;
     }
 
     @Test
+    @Order(5)
      void TestRemoveContrat() {
         Contrat contrat = new Contrat();
         contrat.setIdContrat(1);
