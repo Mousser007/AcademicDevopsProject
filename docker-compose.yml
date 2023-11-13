@@ -1,17 +1,17 @@
 version: "1"
 
 services:
-  mysqldb:
-    container_name: mysqldb
-    image: mysql:5.7  # You can use a different version if needed
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
-      MYSQL_DATABASE: kaddem\db
-    ports:
-      - "3306:3306"  # Map MySQL's port to the host
+  #mysqldb:
+  # container_name: mysqldb
+  # image: mysql  # You can use a different version if needed
+  # environment:
+  #   MYSQL_ALLOW_EMPTY_PASSWORD: yes
+  #   MYSQL_DATABASE: kaddem\db
+  # ports:
+  #   - "3306:3306"  # Map MySQL's port to the host
 
-    volumes:
-      - db:/var/lib/mysql
+  # volumes:
+  #   - db:/var/lib/mysql
   app:
     container_name: kaddemProject
     image: mousseresprit/backendimage  # Replace with the actual image and tag
@@ -25,10 +25,10 @@ services:
       }'
     ports:
       - "8089:8089"  # Map your application's port to the host
-    depends_on:
-      - mysqldb  # Ensure the MySQL service is started before the application
+      # depends_on:
+      #- mysqldb  # Ensure the MySQL service is started before the application
     volumes:
       - app_data:/app/data
 volumes:
   app_data:  # Define the app_data volume
-  db:
+  #db:
