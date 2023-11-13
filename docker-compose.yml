@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   mysqldb:
-    container_name: mysqldb
+    container_name: mysql
     image: mysql  # You can use a different version if needed
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: yes
@@ -26,7 +26,7 @@ services:
     ports:
       - "8089:8089"  # Map your application's port to the host
     depends_on:
-      - mysqldb  # Ensure the MySQL service is started before the application
+      - mysql  # Ensure the MySQL service is started before the application
     volumes:
       - app_data:/app/data
 volumes:
