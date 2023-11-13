@@ -14,7 +14,7 @@ services:
       - db:/var/lib/mysql
   app:
     container_name: kaddemProject
-    image: arfaouiiheb/backend  # Replace with the actual image and tag
+    image: arfaouiiheb/backendimage  # Replace with the actual image and tag
     restart: on-failure
     environment:
       SPRING_APPLICATION_JSON: '{
