@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  mysql:
-    container_name: mysql
-    image: mysql  # You can use a different version if needed
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:5.7  # You can use a different version if needed
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: yes
       MYSQL_DATABASE: kaddem\db
@@ -26,7 +26,7 @@ services:
     ports:
       - "8089:8089"  # Map your application's port to the host
     depends_on:
-      - mysql  # Ensure the MySQL service is started before the application
+      - mysqldb  # Ensure the MySQL service is started before the application
     volumes:
       - app_data:/app/data
 volumes:
